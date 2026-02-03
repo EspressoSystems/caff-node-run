@@ -12,7 +12,7 @@ Download the snapshot from here (TODO: add link). The `docker-compose.yml` file 
 
 # Running the node
 
-This folder is set up to easily run an ApeChain mainnet caff node. <b> You need to replace the Arbitrum RPC URL in `docker-compose.yml` with your own private URL under `parent-chain.connection.url` to avoid rate-limiting issues. </b> The config file included in the repository is prepopulated with mainnet parameters.
+This folder is set up to easily run an ApeChain mainnet caff node. **It is highly recommended to replace the default Arbitrum RPC URL for the `--parent-chain.connection.url` argument in `docker-compose.yml` with your own private URL to avoid rate-limiting issues.** The config file included in the repository is prepopulated with mainnet parameters.
 
 ```
 docker-compose up -d
