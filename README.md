@@ -11,7 +11,7 @@ This repo provides a guide on how to run a caff node for our existing rollup int
 You can use your caff node like any other RPC node. Here's an example using cast:
 
 ```
-cast block  --rpc-url CAFF_NODE_URL
+cast block  --rpc-url CAFF_NODE_RPC_URL
 ```
 
 # Disclaimer
