@@ -8,11 +8,11 @@ The `successfully started` log message indicates the node has fully started. Bef
 
 ### Block Production
 
-The `Produced block` log indicates block production has begun. You can check the [explorer](https://apescan.io/) to see how many blocks remain to be synced.
+The `Produced block` log indicates block production has begun. You can check the explorer of the chain to see how many blocks remain to be synced.
 
 ### Sync Progress
 
-The `Now processing hotshot block` log shows which HotShot block number the node is currently syncing from. Check the [HotShot explorer](https://explorer.main.net.espresso.network/) to determine how many blocks remain to be synced.
+The `Now processing hotshot block` log shows which HotShot block number the node is currently syncing from. Check the HotShot explorer ([mainnet](https://explorer.main.net.espresso.network/) for mainnet chains and [decaf](https://explorer.decaf.testnet.espresso.network/) for testnet chains) to determine how many blocks remain to be synced.
 
 ## Proper Shutdown Procedures
 
@@ -42,7 +42,15 @@ Located under `node.espresso.caff-node.dangerous`:
 
 ### Example: Forcing a Fresh Start
 
-Here we added the dangerous config and updated the `hotshot-block` to the block we want the node to sync from and similarly for `address-monitor-start-l1` which is the parent chain block number we want the node to start syncing from
+Here we added the dangerous config and updated the `hotshot-block` to the block we want the node to sync from and similarly for `address-monitor-start-l1` which is the parent chain block number we want the node to start syncing from.
+
+To get the `hotshot-block` and `address-monitor-start-l1` first get the current block produced by caff node using cast
+
+```
+cast block --rpc-url CAFF_NODE_RPC
+```
+
+Then use any `hotshot-block` from the hotshot explorer (decaf/mainnet depending on whether the chain is testnet or mainnet) which is around 24 hours old as compared to the last block produced by the caff node. Similar thing has to be done for `address-monitor-start-l1` get a parent chain block which is around 24 hours old as compared to the last block produced by the caff node.
 
 ```json
 {
