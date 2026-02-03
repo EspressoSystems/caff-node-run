@@ -1,0 +1,21 @@
+version: "3.4"
+
+volumes:
+  arbitrum:
+
+services:
+  l2:
+    image: ghcr.io/espressosystems/nitro-espresso-integration/nitro-node:apechain-v3.5.6-721a697
+    ports:
+      - "8545:8545"
+      - "8546:8546"
+    volumes:
+      - "${PWD}/nodeConfig.json:/config/nodeConfig.json"
+      - arbitrum:/home/user/.arbitrum
+    entrypoint:
+      - "/usr/local/bin/nitro"
+      - --conf.file=/config/nodeConfig.json
+      - --execution.forwarding-target=https://apechain.calderachain.xyz/http
+      - --node.feed.input.url=wss://apechain.calderachain.xyz/feed
+      - --node.data-availability.rest-aggregator.urls="https://apechain.calderachain.xyz/rest-aggregator"
+      - --parent-chain.connection.url=https://arb1.arbitrum.io/rpc
