@@ -14,7 +14,14 @@
   },
   "http": {
     "addr": "0.0.0.0",
-    "api": ["eth", "net", "web3", "arb", "debug", "txpool"],
+    "api": [
+      "eth",
+      "net",
+      "web3",
+      "arb",
+      "debug",
+      "txpool"
+    ],
     "corsdomain": "*",
     "port": 8545,
     "vhosts": "*"
@@ -24,20 +31,19 @@
       "enable": false
     },
     "espresso": {
+      "caff-node": {
+        "enable": true,
+        "hotshot-url": "https://query-0.main.net.espresso.network/",
+        "namespace": 33139,
+        "hotshot-polling-interval": "1ms",
+        "sgx-verifier-addr": "0x5C113cb41E9ebc9997BaA4f25D773ba78be36afB",
+        "batch-poster-addr": "0x3918b6ecc471211a942B0A904fbFb36302348f6B"
+      },
       "streamer": {
-        "address-monitor-start-l1": 426925467,
+        "hotshot-block": 9919440,
+        "address-monitor-start-l1": 428273028,
         "address-monitor-step": 1000
       }
-    },
-    "espresso-caff-node": {
-      "enable": true,
-      "hotshot-url": "https://query-0.main.net.espresso.network/",
-      "hotshot-block": 9919440,
-      "namespace": 33139,
-      "hotshot-polling-interval": "1ms",
-      "sgx-verifier-addr": "0x5C113cb41E9ebc9997BaA4f25D773ba78be36afB",
-      "batch-poster-addr": "0x3918b6ecc471211a942B0A904fbFb36302348f6B",
-      "from-block": 428273028
     },
     "dangerous": {
       "no-sequencer-coordinator": false,
@@ -66,17 +72,19 @@
       "strategy": "MakeNodes"
     }
   },
-  "parent-chain": {
-    "connection": {
-      "url": "ARBITRUM_MAINNET_RPC"
-    }
-  },
   "persistent": {
     "chain": "local"
   },
   "ws": {
     "addr": "0.0.0.0",
-    "api": ["eth", "net", "web3", "arb", "debug", "txpool"],
+    "api": [
+      "eth",
+      "net",
+      "web3",
+      "arb",
+      "debug",
+      "txpool"
+    ],
     "port": 8546
   }
 }
