@@ -4,12 +4,23 @@
     "name": "rari"
   },
   "espresso": {
-    "batch-poster": {
-      "hotshot-url": "https://query.main.net.espresso.network/",
-      "resubmit-espresso-tx-deadline": "2m"
-    },
     "streamer": {
-      "txns-polling-interval": "300ms"
+      "txns-polling-interval": "2s",
+      "address-monitor-start-l1": 379346635,
+      "hotshot-block": 5936646
+    },
+    "caff-node": {
+      "enable": true,
+      "hotshot-url": "https://query.main.net.espresso.network/",
+      "hotshot-block": 9919440,
+      "namespace": 1380012617,
+      "hotshot-polling-interval": "1ms",
+      "sgx-verifier-addr": "0xe6CA2A4df5b4008b0DA8fF852428073561E6BC18",
+      "batch-poster-addr": "0x3918b6ecc471211a942B0A904fbFb36302348f6B",
+      "from-block": 428273028,
+      "blocks-to-read": 1000,
+      "wait-for-finalization": false,
+      "required-block-depth": 20
     }
   },
   "execution": {
@@ -25,63 +36,28 @@
   },
   "http": {
     "addr": "0.0.0.0",
-    "api": [
-      "eth",
-      "net",
-      "web3",
-      "arb",
-      "debug",
-      "txpool"
-    ],
+    "api": ["eth", "net", "web3", "arb", "debug", "txpool"],
     "corsdomain": "*",
     "port": 8545,
     "vhosts": "*"
   },
   "node": {
     "batch-poster": {
-      "enable": true,
-      "l1-block-bound": "finalized",
-      "light-client-address": "0x47495bb99cccbb1bda9f15b32b69093137f886db",
-      "max-delay": "50m",
-      "max-size": 90000,
-      "parent-chain-wallet": {
-        "private-key": "PRIVATE_KEY"
-      },
-      "wait-for-max-delay": true
+      "enable": false
     },
-    "celestia-cfg": {
-      "enable": true,
-      "url": "https://rari.calderachain.xyz/das-7295579385"
-    },
-    "da-preference": [
-      "celestia",
-      "anytrust"
-    ],
     "dangerous": {
-      "no-sequencer-coordinator": true
+      "no-sequencer-coordinator": true,
+      "disable-blob-reader": true
     },
     "data-availability": {
-      "enable": true,
-      "parent-chain-node-url": "wss://arbitrum-mainnet.infura.io/ws/v3/<API_KEY>",
-      "rest-aggregator": {
-        "enable": true,
-        "urls": "https://rari.calderachain.xyz/rest-aggregator"
-      },
-      "rpc-aggregator": {
-        "assumed-honest": 1,
-        "backends": "[{\"url\":\"https://rari.calderachain.xyz/an-das-rpc-aggregator-7295579385\",\"pubkey\":\"YAeDrpnsDZsKv0V5I5tcYA5z/PZaJuRA4qpki9y8x/bBV15fKHfMHv3Nyn2gBbBbtBjzXZKDCk4Q7mLMfFakukCyPyJSWB9vIczaCFaY1PjUMc//pY9x5VcTauBVhAKx5BZmQ398qhs+fqtEfZ3OgUQMYLvkim1uJ9tidMOnEo+wgWMDZAuMkXoO7BFdMzr8dBkpLjQYP9AYjPYphAERMiUoRuK8/mrXygNrokw2/RrthAH7qlt9eugYrRgIoy8hbgezFeIpVxKYTeuICu2TDV7XJk0oci4CIFSCCdD6X4gTiqbUFETjzthryj4va/GL8hc7MOkf4mPFeFHvzLTXCeh+0SSOOaH9onG0zgVvqEU5ZI6ddqiLMnGwjiJwJ52Efg==\",\"signermask\":1}]",
-        "enable": true
-      },
-      "sequencer-inbox-address": "0xA436f1867adD490BF1530c636f2FB090758bB6B3"
+      "enable": false
     },
     "delayed-sequencer": {
       "enable": false
     },
     "feed": {
       "input": {
-        "url": [
-          "wss://rari.calderachain.xyz/feed"
-        ]
+        "url": ["wss://rari.calderachain.xyz/feed"]
       },
       "output": {
         "enable": false,
@@ -115,14 +91,7 @@
   },
   "ws": {
     "addr": "0.0.0.0",
-    "api": [
-      "eth",
-      "net",
-      "web3",
-      "arb",
-      "debug",
-      "txpool"
-    ],
+    "api": ["eth", "net", "web3", "arb", "debug", "txpool"],
     "port": 8546
   }
 }
