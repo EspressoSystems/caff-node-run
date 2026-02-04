@@ -1,0 +1,128 @@
+{
+  "chain": {
+    "info-json": "[{\"chain-id\":1380012617,\"parent-chain-id\":42161,\"chain-name\":\"rari\",\"chain-config\":{\"chainId\":1380012617,\"homesteadBlock\":0,\"daoForkBlock\":null,\"daoForkSupport\":true,\"eip150Block\":0,\"eip150Hash\":\"0x0000000000000000000000000000000000000000000000000000000000000000\",\"eip155Block\":0,\"eip158Block\":0,\"byzantiumBlock\":0,\"constantinopleBlock\":0,\"petersburgBlock\":0,\"istanbulBlock\":0,\"muirGlacierBlock\":0,\"berlinBlock\":0,\"londonBlock\":0,\"clique\":{\"period\":0,\"epoch\":0},\"arbitrum\":{\"EnableArbOS\":true,\"AllowDebugPrecompiles\":false,\"DataAvailabilityCommittee\":true,\"InitialArbOSVersion\":10,\"InitialChainOwner\":\"0xba739a061291e9aec6422bdad3e9d48d4f7aa552\",\"GenesisBlockNum\":0}},\"rollup\":{\"bridge\":\"0x255f80Ef2F09FCE0944faBb292b8510F01316Cf0\",\"inbox\":\"0x37e60F80d921dc5E7f501a7130F31f6548dBa564\",\"sequencer-inbox\":\"0xA436f1867adD490BF1530c636f2FB090758bB6B3\",\"rollup\":\"0x2e988Ea0873C9d712628F0bf38DAFdE754927C89\",\"validator-utils\":\"0x9e83136d4B3AD04C766591EA51712F9aEa3194C0\",\"validator-wallet-creator\":\"0x0cB25fa1Bb1b12Ef908c09FD2d3C34f16F455DB3\",\"deployed-at\":172197973}}]",
+    "name": "rari"
+  },
+  "espresso": {
+    "batch-poster": {
+      "hotshot-url": "https://query.main.net.espresso.network/",
+      "resubmit-espresso-tx-deadline": "2m"
+    },
+    "streamer": {
+      "txns-polling-interval": "300ms"
+    }
+  },
+  "execution": {
+    "caching": {
+      "archive": true
+    },
+    "forwarding-target": "null",
+    "sequencer": {
+      "enable": false,
+      "max-block-speed": "250ms",
+      "max-tx-data-size": 85000
+    }
+  },
+  "http": {
+    "addr": "0.0.0.0",
+    "api": [
+      "eth",
+      "net",
+      "web3",
+      "arb",
+      "debug",
+      "txpool"
+    ],
+    "corsdomain": "*",
+    "port": 8545,
+    "vhosts": "*"
+  },
+  "node": {
+    "batch-poster": {
+      "enable": true,
+      "l1-block-bound": "finalized",
+      "light-client-address": "0x47495bb99cccbb1bda9f15b32b69093137f886db",
+      "max-delay": "50m",
+      "max-size": 90000,
+      "parent-chain-wallet": {
+        "private-key": "PRIVATE_KEY"
+      },
+      "wait-for-max-delay": true
+    },
+    "celestia-cfg": {
+      "enable": true,
+      "url": "https://rari.calderachain.xyz/das-7295579385"
+    },
+    "da-preference": [
+      "celestia",
+      "anytrust"
+    ],
+    "dangerous": {
+      "no-sequencer-coordinator": true
+    },
+    "data-availability": {
+      "enable": true,
+      "parent-chain-node-url": "wss://arbitrum-mainnet.infura.io/ws/v3/<API_KEY>",
+      "rest-aggregator": {
+        "enable": true,
+        "urls": "https://rari.calderachain.xyz/rest-aggregator"
+      },
+      "rpc-aggregator": {
+        "assumed-honest": 1,
+        "backends": "[{\"url\":\"https://rari.calderachain.xyz/an-das-rpc-aggregator-7295579385\",\"pubkey\":\"YAeDrpnsDZsKv0V5I5tcYA5z/PZaJuRA4qpki9y8x/bBV15fKHfMHv3Nyn2gBbBbtBjzXZKDCk4Q7mLMfFakukCyPyJSWB9vIczaCFaY1PjUMc//pY9x5VcTauBVhAKx5BZmQ398qhs+fqtEfZ3OgUQMYLvkim1uJ9tidMOnEo+wgWMDZAuMkXoO7BFdMzr8dBkpLjQYP9AYjPYphAERMiUoRuK8/mrXygNrokw2/RrthAH7qlt9eugYrRgIoy8hbgezFeIpVxKYTeuICu2TDV7XJk0oci4CIFSCCdD6X4gTiqbUFETjzthryj4va/GL8hc7MOkf4mPFeFHvzLTXCeh+0SSOOaH9onG0zgVvqEU5ZI6ddqiLMnGwjiJwJ52Efg==\",\"signermask\":1}]",
+        "enable": true
+      },
+      "sequencer-inbox-address": "0xA436f1867adD490BF1530c636f2FB090758bB6B3"
+    },
+    "delayed-sequencer": {
+      "enable": false
+    },
+    "feed": {
+      "input": {
+        "url": [
+          "wss://rari.calderachain.xyz/feed"
+        ]
+      },
+      "output": {
+        "enable": false,
+        "port": 9642
+      }
+    },
+    "parent-chain-reader": {
+      "poll-interval": "60s",
+      "poll-only": true
+    },
+    "sequencer": "false",
+    "staker": {
+      "enable": false,
+      "parent-chain-wallet": {
+        "private-key": "PRIVATE_KEY"
+      },
+      "strategy": "MakeNodes"
+    },
+    "transaction-streamer": {
+      "quote-file": "/dev/attestation/quote",
+      "user-data-attestation-file": "/dev/attestation/user_report_data"
+    }
+  },
+  "parent-chain": {
+    "connection": {
+      "url": "wss://arbitrum-mainnet.infura.io/ws/v3/<API_KEY>"
+    }
+  },
+  "persistent": {
+    "chain": "local"
+  },
+  "ws": {
+    "addr": "0.0.0.0",
+    "api": [
+      "eth",
+      "net",
+      "web3",
+      "arb",
+      "debug",
+      "txpool"
+    ],
+    "port": 8546
+  }
+}
