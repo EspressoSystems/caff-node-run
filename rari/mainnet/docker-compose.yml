@@ -15,7 +15,7 @@ services:
     entrypoint:
       - "/usr/local/bin/nitro"
       - --conf.file=/config/nodeConfig.json
-      - --execution.forwarding-target=https://rari.calderachain.xyz/rest-aggregator
+      - --execution.forwarding-target=hhttps://rari.calderachain.xyz/http
       - --node.feed.input.url=wss://rari.calderachain.xyz/feed
       - --node.data-availability.rest-aggregator.urls="https://rari.calderachain.xyz/rest-aggregator"
       - --parent-chain.connection.url=https://arb1.arbitrum.io/rpc
