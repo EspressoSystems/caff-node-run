@@ -7,7 +7,7 @@ Espresso's caff nodes are a wrapper around standard rollup nodes that derive dat
 This repo provides guides for running caff nodes for our existing rollup integrations. Each chain has its instructions stored under its respective folder
 
 - [ApeChain Mainnet](./apechain/mainnet/README.md)
-- [Rari Mainnet](./rari/mainnet/README.md)
+- [Rari Mainnet](./rari/mainnet/README.md) [WIP]
 
 ## Using the Caff Node
 

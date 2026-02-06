@@ -10,7 +10,7 @@ ghcr.io/espressosystems/nitro-espresso-integration/nitro-node:apechain-v3.5.6-72
 
 ### Snapshot
 
-Download the snapshot from here (TODO: add link). The `docker-compose.yml` file currently expects the snapshot folder to be named `arbitrum` and to be located under the same folder as the compose file. You can adjust this according to your setup in `docker-compose.yml`.
+Download the snapshot from [here](https://public-nitro-snapshots-sr44vxsww.s3.us-east-2.amazonaws.com/mainnet/apechain/pruned_20260204.tar). The `docker-compose.yml` file currently expects the snapshot folder to be named `arbitrum` and to be located under the same folder as the compose file. You can adjust this according to your setup in `docker-compose.yml`.
 
 ### Running the node
 
