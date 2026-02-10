@@ -1,0 +1,35 @@
+#!/bin/sh
+# Run JSON config validator on staged JSON files and block commit on errors.
+
+set -e
+
+# Gather staged JSON files (Added, Copied, or Modified)
+STAGED_JSON=$(git diff --cached --name-only --diff-filter=ACM | grep -E '\.json$' || true)
+
+if [ -z "$STAGED_JSON" ]; then
+  # Nothing to validate
+  echo "No staged JSON files to validate."
+  exit 0
+fi
+
+FAILED=0
+
+for f in $STAGED_JSON; do
+  # validate only files that still exist in the worktree
+  if [ -f "$f" ]; then
+    echo "Validating $f..."
+    python3 scripts/validate_schema.py "$f"
+    rc=$?
+    if [ $rc -ne 0 ]; then
+      echo "Validation failed for $f"
+      FAILED=1
+    fi
+  fi
+done
+
+if [ $FAILED -ne 0 ]; then
+  echo "\nCommit aborted: JSON validation errors present (warnings allowed)."
+  exit 1
+fi
+
+exit 0
