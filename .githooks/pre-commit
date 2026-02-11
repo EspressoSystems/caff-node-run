@@ -14,21 +14,78 @@ fi
 
 FAILED=0
 
-for f in $STAGED_JSON; do
+for file in $STAGED_JSON; do
   # validate only files that still exist in the worktree
-  if [ -f "$f" ]; then
-    echo "Validating $f..."
-    python3 scripts/validate_schema.py "$f"
+  
+  if [ -f "$file" ]; then
+
+    echo "Validating $file..."
+    python3 scripts/validate_schema.py "$file"
     rc=$?
     if [ $rc -ne 0 ]; then
-      echo "Validation failed for $f"
+      echo "Validation failed for $file"
       FAILED=1
     fi
+
+    DIFF=$(git diff --cached "$file")
+
+    # Check for Ethereum private keys (0x + 64 hex characters)
+    if echo "$DIFF" | grep -E '^\+.*"private-key"\s*:\s*"0x[0-9a-fA-F]{64}' > /dev/null; then
+        echo ""
+        echo "❌ ERROR: Actual private key detected in $file!"
+        echo "   Use 'ADD_PRIVATE_KEY' or '...' instead of real keys"
+        echo ""
+        FAILED=$((FAILED + 1))
+    fi
+    
+    # Check for suspiciously long alphanumeric strings
+    if echo "$DIFF" | grep -E '^\+.*"private-key"\s*:\s*"[a-zA-Z0-9]{50,}"' > /dev/null; then
+        echo ""
+        echo "⚠️  WARNING: Suspicious private key format in $file"
+        echo "   Use 'ADD_PRIVATE_KEY' or '...' instead"
+        echo ""
+          FAILED=$((FAILED + 1))
+    fi
+
+    # Check for API keys with common patterns
+    # AWS Access Key (AKIA prefix followed by 16 alphanumeric characters)
+    if echo "$DIFF" | grep -E '^\+.*AKIA[0-9A-Z]{16}' > /dev/null; then
+        echo ""
+        echo "❌ ERROR: AWS Access Key detected in $file!"
+        echo "   Use environment variables or secret management instead"
+        echo ""
+          FAILED=$((FAILED + 1))
+    fi
+
+    # Check for common API key patterns
+    # Generic API key patterns: "api_key" or "apiKey" or "API_KEY" followed by alphanumeric string
+    if echo "$DIFF" | grep -E '^\+.*(api[_-]?key|apikey|API[_-]?KEY|secret[_-]?key|secretkey|SECRET[_-]?KEY)\s*[":=]\s*"?[a-zA-Z0-9_\-]{20,}' > /dev/null; then
+        echo ""
+        echo "❌ ERROR: Potential API key/secret detected in $file!"
+        echo "   Use environment variables or secret management instead"
+        echo ""
+          FAILED=$((FAILED + 1))
+    fi
+
+    if echo "$DIFF" | grep -E '^\+.*https?://[^"]*/[0-9a-fA-F]{32,}' > /dev/null; then
+        echo ""
+        echo "❌ ERROR: Possible API key embedded in URL in $file!"
+        echo ""
+        FAILED=$((FAILED + 1))
+    fi
+     
+    if echo "$DIFF" | grep -E '^\+.*wss?://[^"]*/[0-9a-fA-F]{32,}' > /dev/null; then
+        echo ""
+        echo "❌ ERROR: Possible API key embedded in URL in $file!"
+        echo ""
+        FAILED=$((FAILED + 1))
+    fi
+
   fi
 done
 
 if [ $FAILED -ne 0 ]; then
-  echo "\nCommit aborted: JSON validation errors present (warnings allowed)."
+  echo "\n 🚫 Commit aborted: JSON validation errors present (warnings allowed)."
   exit 1
 fi
 
