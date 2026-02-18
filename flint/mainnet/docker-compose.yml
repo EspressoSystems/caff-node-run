@@ -5,7 +5,7 @@ volumes:
 
 services:
   l2:
-    image: ghcr.io/espressosystems/nitro-espresso-integration/nitro-node:v3.5.6-celestia-960548b
+    image: ghcr.io/espressosystems/nitro-espresso-integration/nitro-node:v3.5.6-7699335
     ports:
       - "8545:8545"
       - "8546:8546"
@@ -15,7 +15,7 @@ services:
     entrypoint:
       - "/usr/local/bin/nitro"
       - --conf.file=/config/nodeConfig.json
-      - --execution.forwarding-target=https://rari.calderachain.xyz/http
-      - --node.feed.input.url=wss://rari.calderachain.xyz/feed
-      - --node.data-availability.rest-aggregator.urls="https://rari.calderachain.xyz/rest-aggregator"
+      - --execution.forwarding-target=https://vzjuxmhfn70kgnlds27h.alt.technology
+      - --node.feed.input.url=wss://vzjuxmhfn70kgnlds27h.alt.technology/feed
+      - --node.data-availability.rest-aggregator.urls="https://vzjuxmhfn70kgnlds27h-da.alt.technology/"
       - --parent-chain.connection.url=https://arb1.arbitrum.io/rpc
