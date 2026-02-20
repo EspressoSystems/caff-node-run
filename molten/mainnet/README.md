@@ -1,11 +1,11 @@
 # Molten Mainnet
 
-> For general caff node information, shutdown procedures, and dangerous configuration options, see the our [detailed docs](../../monitoring.md).
+> For general caff node information, shutdown procedures, and dangerous configuration options, see our [detailed docs](../../monitoring.md).
 
 ### Docker Image
 
 ```
-ghcr.io/espressosystems/nitro-espresso-integration/nitro-node:v3.5.6-celestia-960548b
+ghcr.io/espressosystems/nitro-espresso-integration/nitro-node:v3.5.6-celestia-9c5e4c9
 ```
 
 ### Snapshot
@@ -14,7 +14,7 @@ Download the snapshot from here (TODO: add link). The `docker-compose.yml` file 
 
 ### Running the node
 
-This folder is set up to easily run an Molten mainnet caff node. **Please replace the default Arbitrum RPC URL for the `--parent-chain.connection.url` argument in `docker-compose.yml` with your own private URL to avoid rate-limiting issues.** The config file included in the repository is prepopulated with mainnet parameters.
+This folder is set up to easily run a Molten mainnet caff node. **Please replace the default Arbitrum RPC URL for the `--parent-chain.connection.url` argument in `docker-compose.yml` with your own private URL to avoid rate-limiting issues.** The config file included in the repository is prepopulated with mainnet parameters.
 
 ```
 docker-compose up -d

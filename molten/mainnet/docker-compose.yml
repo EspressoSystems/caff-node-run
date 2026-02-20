@@ -5,7 +5,7 @@ volumes:
 
 services:
   l2:
-    image: ghcr.io/espressosystems/nitro-espresso-integration/nitro-node:v3.5.6-celestia-960548b
+    image: ghcr.io/espressosystems/nitro-espresso-integration/nitro-node:v3.5.6-celestia-9c5e4c9
     ports:
       - "8545:8545"
       - "8546:8546"
