@@ -18,4 +18,4 @@ services:
       - --execution.forwarding-target=https://appchain.calderachain.xyz/http
       - --node.feed.input.url=wss://appchain.calderachain.xyz/feed
       - --node.data-availability.rest-aggregator.urls="https://appchain.calderachain.xyz/rest-aggregator"
-      - --parent-chain.connection.url=https://arb1.arbitrum.io/rpc
+      - --parent-chain.connection.url=https://eth.drpc.org
