@@ -8,6 +8,7 @@ This repo provides guides for running caff nodes for our existing rollup integra
 
 - [ApeChain Mainnet](./apechain/mainnet/README.md)
 - [Rari Mainnet](./rari/mainnet/README.md) [WIP]
+- [Appchain Mainnet](./appchain/mainnet/README.md) [WIP]
 
 ## Using the Caff Node
 
