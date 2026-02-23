@@ -26,7 +26,7 @@
     "espresso": {
       "caff-node": {
         "enable": true,
-        "hotshot-url": "https://query-0.main.net.espresso.network/",
+        "hotshot-url": "https://query.main.net.espresso.network/",
         "namespace": 466,
         "hotshot-polling-interval": "1ms",
         "sgx-verifier-addr": "0x98206aBE6bdB21765458f27F199fd813343a3C3b",
