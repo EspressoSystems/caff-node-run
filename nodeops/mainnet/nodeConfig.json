@@ -26,15 +26,18 @@
     "espresso": {
       "caff-node": {
         "enable": true,
-        "hotshot-url": "https://query-0.main.net.espresso.network/",
+        "hotshot-url": "https://query.main.net.espresso.network/",
         "namespace": 46290,
         "hotshot-polling-interval": "1ms",
         "sgx-verifier-addr": "0xE0032d5a83f082aC05E66C31dcAbd84bc461b767",
-        "batch-poster-addr": "0x0B1CDDa422fabB54418231d21B48cdE3e833A133"
+        "batch-poster-addr": "0x0B1CDDa422fabB54418231d21B48cdE3e833A133",
+        "blocks-to-read": 1000,
+        "wait-for-finalization": false,
+        "required-block-depth": 20
       },
       "streamer": {
-        "hotshot-block": 9919440,
-        "address-monitor-start-l1": 428273028,
+        "hotshot-block": 4996674,
+        "address-monitor-start-l1": 436495378,
         "address-monitor-step": 1000,
         "txns-polling-interval": "125ms"
       }
