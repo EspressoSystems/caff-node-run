@@ -15,4 +15,7 @@ services:
     entrypoint:
       - "/usr/local/bin/nitro"
       - --conf.file=/config/nodeConfig.json
-      - --parent-chain.connection.url=https://eth.drpc.org
+      - --execution.forwarding-target=https://huddle01.calderachain.xyz/http
+      - --node.feed.input.url=wss://huddle01.calderachain.xyz/feed
+      - --node.data-availability.rest-aggregator.urls="https://huddle01.calderachain.xyz/rest-aggregator"
+      - --parent-chain.connection.url=https://arb1.arbitrum.io/rpc

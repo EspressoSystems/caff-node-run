@@ -12,6 +12,7 @@ This repo provides guides for running caff nodes for our existing rollup integra
 - [Appchain Mainnet](./appchain/mainnet/README.md) [WIP]
 - [NodeOps Mainnet](./nodeops/mainnet/README.md) [WIP]
 - [Rufus Mainnet](./rufus/mainnet/README.md) [WIP]
+- [Huddle01 Mainnet](./huddle01/mainnet/README.md) [WIP]
 
 ## Using the Caff Node
 
