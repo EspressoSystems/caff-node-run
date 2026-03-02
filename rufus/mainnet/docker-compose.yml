@@ -1,0 +1,18 @@
+version: "3.4"
+
+volumes:
+  arbitrum:
+
+services:
+  caff_node:
+    image: ghcr.io/espressosystems/nitro-espresso-integration/nitro-node:v3.6.7-28db223
+    ports:
+      - "8545:8545"
+      - "8546:8546"
+    volumes:
+      - "${PWD}/nodeConfig.json:/config/nodeConfig.json"
+      - arbitrum:/home/user/.arbitrum
+    entrypoint:
+      - "/usr/local/bin/nitro"
+      - --conf.file=/config/nodeConfig.json
+      - --parent-chain.connection.url=https://eth.drpc.org
