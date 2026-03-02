@@ -1,0 +1,85 @@
+{
+  "chain": {
+    "info-json": "[{\"chain-id\":12323,\"parent-chain-id\":42161,\"chain-name\":\"huddle01\",\"chain-config\":{\"chainId\":12323,\"homesteadBlock\":0,\"daoForkBlock\":null,\"daoForkSupport\":true,\"eip150Block\":0,\"eip150Hash\":\"0x0000000000000000000000000000000000000000000000000000000000000000\",\"eip155Block\":0,\"eip158Block\":0,\"byzantiumBlock\":0,\"constantinopleBlock\":0,\"petersburgBlock\":0,\"istanbulBlock\":0,\"muirGlacierBlock\":0,\"berlinBlock\":0,\"londonBlock\":0,\"clique\":{\"period\":0,\"epoch\":0},\"arbitrum\":{\"EnableArbOS\":true,\"AllowDebugPrecompiles\":false,\"DataAvailabilityCommittee\":true,\"InitialArbOSVersion\":32,\"EigenDA\":false,\"Celestia\":false,\"InitialChainOwner\":\"0xa56236aa343cede653c03838de6e8d6a35c2e4ae\",\"GenesisBlockNum\":0}},\"rollup\":{\"bridge\":\"0x4A346da02EA2Fa6E49834C409165c6D6527ae522\",\"inbox\":\"0x54F6B125e793eB87D0d00bc7179d179Bc380F3De\",\"sequencer-inbox\":\"0x512c22Be4d0bEC6A07cfA7B5ED63E612Ee8fE4D5\",\"rollup\":\"0xEe0f38fA8B33EF8f0AAE3F26c67E173D2379e31e\",\"validator-utils\":\"0xaB36aec5517C346D21b9C19429BAA5aa87D17fCa\",\"validator-wallet-creator\":\"0x5a6C98F6A60BDC02cE4d8AD43b4Fc88Fe5b38856\",\"deployed-at\":280749021}}]",
+    "name": "huddle01"
+  },
+  "execution": {
+    "caching": {
+      "archive": false
+    },
+    "forwarding-target": "https://huddle01.calderachain.xyz/http",
+    "sequencer": {
+      "enable": false
+    }
+  },
+  "http": {
+    "addr": "0.0.0.0",
+    "api": ["eth", "net", "web3", "arb", "txpool"],
+    "corsdomain": "*",
+    "port": 8545,
+    "vhosts": "*"
+  },
+  "node": {
+    "batch-poster": {
+      "enable": false
+    },
+    "espresso": {
+      "caff-node": {
+        "enable": true,
+        "hotshot-url": "https://query.main.net.espresso.network/",
+        "namespace": 12323,
+        "hotshot-polling-interval": "1ms",
+        "sgx-verifier-addr": "0x97f7d308708E267512290B8025A3d2ba2638d734",
+        "batch-poster-addr": "0x09F113077AF871b7527a440AfC6B0a364338e42e",
+        "blocks-to-read": 1000,
+        "required-block-depth": 20,
+        "wait-for-finalization": false
+      },
+      "streamer": {
+        "hotshot-block": 6067272,
+        "address-monitor-start-l1": 383530285,
+        "address-monitor-step": 1000,
+        "txns-polling-interval": "250ms"
+      }
+    },
+    "dangerous": {
+      "no-sequencer-coordinator": true,
+      "disable-blob-reader": true
+    },
+    "data-availability": {
+      "enable": false
+    },
+    "delayed-sequencer": {
+      "enable": false
+    },
+    "feed": {
+      "input": {},
+      "output": {
+        "enable": false,
+        "signed": false,
+        "addr": "0.0.0.0"
+      }
+    },
+    "seq-coordinator": {
+      "enable": false
+    },
+    "parent-chain-reader": {
+      "enable": true,
+      "poll-interval": "60s",
+      "poll-only": true
+    },
+    "sequencer": false,
+    "staker": {
+      "enable": false,
+      "strategy": "MakeNodes"
+    }
+  },
+  "persistent": {
+    "chain": "local"
+  },
+  "ws": {
+    "addr": "0.0.0.0",
+    "api": ["eth", "net", "web3", "arb", "txpool"],
+    "port": 8546
+  }
+}
