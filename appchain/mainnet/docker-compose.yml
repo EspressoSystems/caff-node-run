@@ -4,7 +4,7 @@ volumes:
   arbitrum:
 
 services:
-  l2:
+  caff_node:
     image: ghcr.io/espressosystems/nitro-espresso-integration/nitro-node:v3.6.7-28db223
     ports:
       - "8545:8545"
@@ -15,7 +15,4 @@ services:
     entrypoint:
       - "/usr/local/bin/nitro"
       - --conf.file=/config/nodeConfig.json
-      - --execution.forwarding-target=https://appchain.calderachain.xyz/http
-      - --node.feed.input.url=wss://appchain.calderachain.xyz/feed
-      - --node.data-availability.rest-aggregator.urls="https://appchain.calderachain.xyz/rest-aggregator"
       - --parent-chain.connection.url=https://eth.drpc.org
