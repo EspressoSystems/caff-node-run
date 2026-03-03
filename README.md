@@ -13,6 +13,7 @@ This repo provides guides for running caff nodes for our existing rollup integra
 - [NodeOps Mainnet](./nodeops/mainnet/README.md) [WIP]
 - [Rufus Mainnet](./rufus/mainnet/README.md) [WIP]
 - [Huddle01 Mainnet](./huddle01/mainnet/README.md) [WIP]
+- [T3RN Mainnet](./t3rn/mainnet/README.md) [WIP]
 
 ## Using the Caff Node
 
