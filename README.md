@@ -10,7 +10,7 @@ This repo provides guides for running caff nodes for our existing rollup integra
 - [Rari Mainnet](./rari/mainnet/README.md) [WIP]
 - [Molten Mainnet](./molten/mainnet/README.md) [WIP]
 - [Appchain Mainnet](./appchain/mainnet/README.md) [WIP]
-- [NodeOps Mainnet](./nodeops/mainnet/README.md) [WIP]
+- [NodeOps Mainnet](./nodeops/mainnet/README.md)
 - [Rufus Mainnet](./rufus/mainnet/README.md) [WIP]
 - [Huddle01 Mainnet](./huddle01/mainnet/README.md) [WIP]
 - [T3RN Mainnet](./t3rn/mainnet/README.md) [WIP]
