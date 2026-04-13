@@ -27,6 +27,10 @@ cast block --rpc-url CAFF_NODE_URL
 
 For more detailed docs on how to monitor/debug the caff node, please read our [detailed docs](./monitoring.md)
 
+## License
+Copyright
+(c) 2022 Espresso Systems. The Caff Node Running tool was developed by Espresso Systems. While we plan to adopt an open source license, we have not yet selected one. As such, all rights are reserved for the time being. Please reach out to us if you have thoughts on licensing.
+
 ## Disclaimer
 
 This repo is intended as an example of how to run caff nodes. For production deployments, please contact us.
